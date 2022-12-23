@@ -21,6 +21,12 @@
       "email": "royrahulk75@gmail.com",
       "password": "`123456789",
       "id": 4
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "password": "",
+      "id": 5
     }
   ]
 }
