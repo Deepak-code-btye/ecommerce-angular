@@ -1,0 +1,80 @@
+<div class="flex justify-center items-center h-screen w-full bg-blue-400">
+  <div class="w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+    <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">
+      Update Product
+    </h1>
+    <p class="text-green-500">{{ productMsg }}</p>
+    <form #UpdateProduct="ngForm" (ngSubmit)="updateData(UpdateProduct.value)">
+      <div class="flex flex-col mb-4">
+        <!-- <label class="mb-2 font-bold text-lg text-gray-900" for="first_name"
+            >First Name</label
+          > -->
+        <input
+          ngModel="{{ productData?.productname }}"
+          class="border py-2 px-3 text-grey-800"
+          type="text"
+          name="productname"
+          placeholder="Enter product Name"
+        />
+      </div>
+      <div class="flex flex-col mb-4">
+        <!-- <label class="mb-2 font-bold text-lg text-gray-900" for="last_name"
+            >Last Name</label
+          > -->
+        <input
+          ngModel="{{ productData?.price }}"
+          class="border py-2 px-3 text-grey-800"
+          type="text"
+          name="price"
+          placeholder="Enter Product Price"
+        />
+      </div>
+      <div class="flex flex-col mb-4">
+        <!-- <label class="mb-2 font-bold text-lg text-gray-900" for="email"
+            >Email</label
+          > -->
+        <input
+          ngModel="{{ productData?.color }}"
+          class="border py-2 px-3 text-grey-800"
+          type="text"
+          name="color"
+          placeholder="Enter Product Color"
+        />
+      </div>
+      <div class="flex flex-col mb-4">
+        <input
+          ngModel="{{ productData?.category }}"
+          class="border py-2 px-3 text-grey-800"
+          type="text"
+          name="Category"
+          placeholder="Enter Product Category"
+        />
+      </div>
+      <div class="flex flex-col mb-4">
+        <textarea
+          ngModel="{{ productData?.description }}"
+          ngModel
+          class="border py-2 px-3 text-grey-800"
+          type="text"
+          name="description"
+          placeholder="Enter Product Description"
+        ></textarea>
+      </div>
+      <div class="flex flex-col mb-4">
+        <input
+          ngModel="{{ productData?.image }}"
+          class="border py-2 px-3 text-grey-800"
+          type="text"
+          name="image"
+          placeholder="Enter Product Image Url"
+        />
+      </div>
+      <button
+        class="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded"
+        type="submit"
+      >
+        Add Product
+      </button>
+    </form>
+  </div>
+</div>

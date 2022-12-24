@@ -17,7 +17,9 @@ export class SellerAddProductComponent implements OnInit {
       if (res) {
         this.productMsg = 'product add successfully added';
       }
-      setTimeout(() => (this.productMsg = undefined), 2000);
+      setTimeout(() => {
+        this.productMsg = undefined;
+      }, 1000);
     });
   }
   // console.warn(data);
