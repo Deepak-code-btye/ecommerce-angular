@@ -1,1 +1,71 @@
-<p>seller-home works!</p>
+<div>
+  <table class="min-w-full table-auto">
+    <thead class="justify-between">
+      <tr class="bg-gray-800">
+        <th class="px-16 py-2">
+          <span class="text-gray-300">Image</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-300">Name</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-300">Price</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-300">color</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-300">Category</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-300">Description</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-300">Action</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-gray-200" *ngFor="let data of pruductList">
+      <tr class="bg-white border-4 border-gray-200">
+        <td class="px-16 py-2 flex flex-row items-center">
+          <img
+            class="h-8 w-8 rounded-full object-cover"
+            src="{{ data.image }}"
+            alt=""
+          />
+        </td>
+        <td>
+          <span class="text-center ml-2 font-semibold"
+            >{{ data.productname }}
+          </span>
+        </td>
+        <td class="px-16 py-2">
+          <span> Rs. {{ data.price }}</span>
+        </td>
+        <td class="px-16 py-2">
+          <span> {{ data.color }}</span>
+        </td>
+        <td class="px-16 py-2">
+          <span> {{ data.category }}</span>
+        </td>
+        <td class="px-16 py-2">
+          <span class="text-gray-500 text-sm">{{ data.description }}</span>
+        </td>
+        <td class="px-16 py-2 flex">
+          <button
+            (click)="productDelete(data.id)"
+            class="bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
+          >
+            <fa-icon [icon]="deleteIcon"></fa-icon>
+          </button>
+          <a
+            routerLink="/seller-update-product/{{ data.id }}"
+            class="bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
+          >
+            <fa-icon [icon]="editIcon"></fa-icon>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
