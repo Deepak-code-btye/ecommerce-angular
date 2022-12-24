@@ -13,11 +13,12 @@
       "id": 2
     }
   ],
-  "product": [
+  "products": [
     {
       "productname": "Apple",
       "price": "4000",
-      "Category": "mobile",
+      "category": "mobile",
+      "color":"black",
       "description": "this is an apple",
       "image": "https://www.gadgetsnow.com/mobile-phones/images/Apple-iPhone-12-photos",
       "id": 1
@@ -25,7 +26,8 @@
     {
       "productname": "Lava",
       "price": "10000",
-      "Category": "mobile",
+      "category": "mobile",
+      "color":"golden",
       "description": "this is a lava smart phone",
       "image": "https://drop.ndtv.com/TECH/product_database/images/9292016111148AM_635_lava_a97.jpeg?downsize=*:180",
       "id": 2
