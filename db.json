@@ -1,32 +1,34 @@
 {
   "seller": [
     {
-      "id": 1,
-      "email": "ajay123@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": 2,
-      "email": "vijay123@gmail.com",
-      "password": "123456"
-    },
-    {
-      "fullname": "kartik",
+      "name": "kartik",
       "email": "kartik123@gmail.com",
       "password": "1234567",
-      "id": 3
+      "id": 1
     },
     {
-      "fullname": "ganesh",
+      "name": "ganesh",
       "email": "royrahulk75@gmail.com",
       "password": "`123456789",
-      "id": 4
+      "id": 2
+    }
+  ],
+  "product": [
+    {
+      "productname": "Apple",
+      "price": "4000",
+      "Category": "mobile",
+      "description": "this is an apple",
+      "image": "https://www.gadgetsnow.com/mobile-phones/images/Apple-iPhone-12-photos",
+      "id": 1
     },
     {
-      "fullname": "",
-      "email": "",
-      "password": "",
-      "id": 5
+      "productname": "Lava",
+      "price": "10000",
+      "Category": "mobile",
+      "description": "this is a lava smart phone",
+      "image": "https://drop.ndtv.com/TECH/product_database/images/9292016111148AM_635_lava_a97.jpeg?downsize=*:180",
+      "id": 2
     }
   ]
 }
