@@ -4,10 +4,14 @@
     *ngFor="let item of SearchResult"
   >
     <div>
-      <img class="w-52" src="{{ item.image }}" alt="" />
+      <a routerLink="/details/{{ item.id }}">
+        <img class="w-52 cursor-pointer" src="{{ item.image }}" alt=""
+      /></a>
     </div>
     <div>
-      <h6 class="pb-1">{{ item.productname }}</h6>
+      <a routerLink="/details/{{ item.id }}">
+        <h6 class="pb-1 cursor-pointer">{{ item.productname }}</h6></a
+      >
       <p class="pb-1">
         <b>Price : {{ item.price }}</b>
       </p>
