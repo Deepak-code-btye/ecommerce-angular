@@ -22,6 +22,33 @@
       "description": "this is a lava smart phone",
       "image": "https://drop.ndtv.com/TECH/product_database/images/9292016111148AM_635_lava_a97.jpeg?downsize=*:180",
       "id": 2
+    },
+    {
+      "productname": "Windows",
+      "price": "150000",
+      "color": "gray",
+      "Category": "window Laptop",
+      "description": "this is a window Laptop",
+      "image": "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80",
+      "id": 3
+    },
+    {
+      "productname": "DENZER HILLS ",
+      "price": "299",
+      "color": "Black",
+      "Category": "watch",
+      "description": "mooch wali gujjar Analog Watch - For Boys & Girls",
+      "image": "https://rukminim1.flixcart.com/image/832/832/kzk6bgw0/watch/h/j/j/1-mooch-wali-gujjar-denzer-hills-boys-girls-original-imagbjzyfffuxktt.jpeg?q=70",
+      "id": 4
+    },
+    {
+      "productname": "Infinix Smart 6 HD  ",
+      "price": "5,799",
+      "color": "Blue",
+      "Category": "Smart Phone",
+      "description": "(Origin Blue, 32 GB)  (2 GB RAM)",
+      "image": "https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/2/i/c/-original-imaggvx8zyfjwqyb.jpeg?q=70",
+      "id": 5
     }
   ]
 }

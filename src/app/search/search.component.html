@@ -1,1 +1,23 @@
-<p>search works!</p>
+<div>
+  <div
+    class="flex justify-evenly mt-10 border-b pb-5 border-blue-500 max-sm"
+    *ngFor="let item of SearchResult"
+  >
+    <div>
+      <img class="w-52" src="{{ item.image }}" alt="" />
+    </div>
+    <div>
+      <h6 class="pb-1">{{ item.productname }}</h6>
+      <p class="pb-1">
+        <b>Price : {{ item.price }}</b>
+      </p>
+      <p class="pb-1">
+        <span class="text-black font-semibold"
+          >Color : <span class="font-thin">{{ item.color }}</span></span
+        >
+        <span class="text-black font-semibold"> {{ item.category }}</span>
+      </p>
+      <p class="pb-1">{{ item.description }}</p>
+    </div>
+  </div>
+</div>
