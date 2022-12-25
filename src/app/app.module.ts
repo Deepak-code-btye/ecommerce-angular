@@ -12,7 +12,8 @@ import { SellerHomeComponent } from './seller-home/seller-home.component';
 import { SellerAddProductComponent } from './seller-add-product/seller-add-product.component';
 import { SellerUpadateProductComponent } from './seller-upadate-product/seller-upadate-product.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +23,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SellerAuthComponent,
     SellerHomeComponent,
     SellerAddProductComponent,
-    SellerUpadateProductComponent
+    SellerUpadateProductComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

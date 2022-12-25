@@ -29,4 +29,16 @@ export class ProductService implements OnInit {
       product
     );
   }
+  // carousel
+  popularProduct() {
+    return this.http.get<product[]>('http://localhost:3000/products?_limit=4');
+  }
+  trendyproduct() {
+    return this.http.get<product[]>('http://localhost:3000/products?_limit=8');
+  }
+  searchproduct(query: string) {
+    return this.http.get<product[]>(
+      `http://localhost:3000/products?q=${query}`
+    );
+  }
 }
