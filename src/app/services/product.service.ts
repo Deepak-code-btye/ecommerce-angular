@@ -41,4 +41,6 @@ export class ProductService implements OnInit {
       `http://localhost:3000/products?q=${query}`
     );
   }
+  //  search component
+  // searchData() {}
 }

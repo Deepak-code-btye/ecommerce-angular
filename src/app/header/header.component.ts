@@ -56,4 +56,10 @@ export class HeaderComponent implements OnInit {
   hideSearch() {
     this.SearchResult = undefined;
   }
+
+  // Searching btn function
+  SearchBtn(val: string) {
+    // console.warn(val);
+    this.route.navigate([`/search/${val}`]);
+  }
 }
