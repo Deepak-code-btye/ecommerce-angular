@@ -73,5 +73,31 @@
       "confirm-password": "12345",
       "id": 3
     }
+  ],
+  "cart": [
+    {
+      "productname": "Windows",
+      "price": "150000",
+      "color": "gray",
+      "category": "window Laptop",
+      "description": "this is a window Laptop",
+      "image": "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80",
+      "quantity": 1,
+      "productId": 3,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "productname": "Windows",
+      "price": "150000",
+      "color": "gray",
+      "category": "window Laptop",
+      "description": "this is a window Laptop",
+      "image": "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80",
+      "quantity": 1,
+      "productId": 3,
+      "userId": 1,
+      "id": 2
+    }
   ]
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
-import { product } from 'src/data.type';
+import { cart, product } from 'src/data.type';
 
 @Injectable({
   providedIn: 'root',
@@ -67,5 +67,9 @@ export class ProductService implements OnInit {
       localStorage.setItem('localCart', JSON.stringify(items));
       this.cartData.emit(items);
     }
+  }
+
+  AddToCartData(cartData: cart) {
+    return this.http.post('http://localhost:3000/cart', cartData);
   }
 }
