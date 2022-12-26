@@ -72,13 +72,6 @@
       "password": "12345",
       "confirm-password": "12345",
       "id": 3
-    },
-    {
-      "name": "Satyam",
-      "email": "stayam@gmail.com",
-      "password": "123456",
-      "confirm-password": "123456",
-      "id": 4
     }
   ]
 }
