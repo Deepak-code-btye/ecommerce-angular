@@ -11,17 +11,32 @@ import { ProductService } from '../services/product.service';
 export class ProductDetailsComponent implements OnInit {
   productData: undefined | product;
   productQuantity: number = 1;
+  removeCart = false;
   constructor(
     private activeRoute: ActivatedRoute,
     private product: ProductService
   ) {}
   ngOnInit(): void {
-    let productFind = this.activeRoute.snapshot.paramMap.get('productId');
-    // console.warn(productFind);
-    productFind &&
-      this.product.getProductId(productFind).subscribe((res) => {
+    let productFindId = this.activeRoute.snapshot.paramMap.get('productId');
+    // console.warn(productFindId);
+    productFindId &&
+      this.product.getProductId(productFindId).subscribe((res) => {
         // console.warn(res);
         this.productData = res;
+
+        //remove cart fun
+        let cartData = localStorage.getItem('localCart');
+        if (productFindId && cartData) {
+          let items = JSON.parse(cartData);
+          items = items.filter(
+            (item: product) => productFindId === item.id.toString()
+          );
+          if (items.length) {
+            this.removeCart = true;
+          } else {
+            this.removeCart = false;
+          }
+        }
       });
   }
   handleQuntity(val: string) {
@@ -37,7 +52,12 @@ export class ProductDetailsComponent implements OnInit {
       if (!localStorage.getItem('User')) {
         // console.warn(this.productData);
         this.product.localAddToCart(this.productData);
+        this.removeCart = true;
       }
     }
+  }
+  RemoveToCart(productId: number) {
+    this.product.removeItemFromCart(productId);
+    this.removeCart = false;
   }
 }

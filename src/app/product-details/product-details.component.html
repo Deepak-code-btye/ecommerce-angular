@@ -14,8 +14,19 @@
     <h6 class="py-2">Description : {{ productData.description }}</h6>
 
     <div class="grid grid-cols-2 my-3 gap-2">
-      <button class="bg-yellow-300 text-black" (click)="AddToCart()">
+      <button
+        *ngIf="!removeCart"
+        class="bg-yellow-300 text-black"
+        (click)="AddToCart()"
+      >
         Add to Card
+      </button>
+      <button
+        *ngIf="removeCart"
+        class="bg-yellow-300 text-black"
+        (click)="RemoveToCart(productData.id)"
+      >
+        Remove to Card
       </button>
       <button class="bg-green-600 text-black">Buy Now</button>
     </div>

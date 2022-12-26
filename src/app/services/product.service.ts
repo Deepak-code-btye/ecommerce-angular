@@ -57,4 +57,15 @@ export class ProductService implements OnInit {
     }
     this.cartData.emit(cartData);
   }
+
+  removeItemFromCart(productId: number) {
+    let cartData = localStorage.getItem('localCart');
+    if (cartData) {
+      let items: product[] = JSON.parse(cartData);
+      items = items.filter((item: product) => productId !== item.id);
+      // console.warn(items);
+      localStorage.setItem('localCart', JSON.stringify(items));
+      this.cartData.emit(items);
+    }
+  }
 }
