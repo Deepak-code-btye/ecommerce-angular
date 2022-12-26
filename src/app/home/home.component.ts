@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
     // trendy api
     this.product.trendyproduct().subscribe((res) => {
-      console.warn(res);
+      // console.warn(res);
     });
   }
 }
