@@ -50,5 +50,35 @@
       "image": "https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/2/i/c/-original-imaggvx8zyfjwqyb.jpeg?q=70",
       "id": 5
     }
+  ],
+  "users": [
+    {
+      "name": "Deepak",
+      "email": "dk1234@gmail.com",
+      "password": "123456",
+      "confirm-password": "123456",
+      "id": 1
+    },
+    {
+      "name": "Satyam",
+      "email": "stayam@gmail.com",
+      "password": "123456",
+      "confirm-password": "123456",
+      "id": 2
+    },
+    {
+      "name": "ajay",
+      "email": "ajay1234@gmail.com",
+      "password": "12345",
+      "confirm-password": "12345",
+      "id": 3
+    },
+    {
+      "name": "Satyam",
+      "email": "stayam@gmail.com",
+      "password": "123456",
+      "confirm-password": "123456",
+      "id": 4
+    }
   ]
 }

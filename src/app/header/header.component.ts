@@ -14,22 +14,30 @@ export class HeaderComponent implements OnInit {
   sellerName: string = '';
 
   SearchResult: undefined | product[];
+  // user name
+  userName: string = '';
   constructor(private route: Router, private product: ProductService) {}
   ngOnInit(): void {
     this.route.events.subscribe((val: any) => {
       if (val.url) {
         // console.warn(val.url);
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
-          // console.warn('in seller area');
-          this.menuType = 'seller';
+          // console.warn('in seller area')
           if (localStorage.getItem('seller')) {
             let sellerStore = localStorage.getItem('seller');
             let sellerData = sellerStore && JSON.parse(sellerStore)[0];
             this.sellerName = sellerData.name;
+            this.menuType = 'seller';
           }
+          // user
+        } else if (localStorage.getItem('User')) {
+          let userStore = localStorage.getItem('User');
+          let userData = userStore && JSON.parse(userStore);
+          console.warn(userData.name);
+          this.userName = userData.name;
+          this.menuType = 'User';
         } else {
           this.menuType = 'default';
-          // console.warn('outside seller area');
         }
       }
     });
@@ -37,6 +45,11 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.removeItem('seller');
     this.route.navigate(['/']);
+  }
+  // userlogout
+  userlogout() {
+    localStorage.removeItem('User');
+    this.route.navigate(['/user-auth']);
   }
   //  searching box function
   Searchproduct(query: KeyboardEvent) {

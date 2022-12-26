@@ -76,8 +76,9 @@
         </ul>
       </div>
       <div [ngSwitch]="menuType">
+        <!-- user -->
         <ul
-          *ngSwitchCase="'default'"
+          *ngSwitchCase="'User'"
           class="pt-4 text-base text-gray-700 md:flex md:justify-between items-baseline md:pt-0"
         >
           <li>
@@ -90,18 +91,24 @@
           <li>
             <a
               class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/seller-auth"
-              >Seller</a
+              routerLink="/seller-home"
+            >
+              List</a
             >
           </li>
           <li>
             <a
               class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              href="#"
-              >Login</a
+              (click)="userlogout()"
+              >Logout</a
             >
           </li>
 
+          <li>
+            <a class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
+              >{{ userName | titlecase }}
+            </a>
+          </li>
           <li>
             <a
               class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
@@ -109,6 +116,7 @@
             >
           </li>
         </ul>
+        <!-- seller -->
         <ul
           *ngSwitchCase="'seller'"
           class="pt-4 text-base text-gray-700 md:flex md:justify-between items-baseline md:pt-0"
@@ -140,6 +148,39 @@
             <a class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
               >{{ sellerName | titlecase }}
             </a>
+          </li>
+        </ul>
+        <ul
+          *ngSwitchDefault="'default'"
+          class="pt-4 text-base text-gray-700 md:flex md:justify-between items-baseline md:pt-0"
+        >
+          <li>
+            <a
+              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
+              routerLink="/"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
+              routerLink="/seller-auth"
+              >Seller</a
+            >
+          </li>
+          <li>
+            <a
+              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
+              routerLink="/user-auth"
+              >Login /Sign-up</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
+              >Cart <span>0</span></a
+            >
           </li>
         </ul>
       </div>
