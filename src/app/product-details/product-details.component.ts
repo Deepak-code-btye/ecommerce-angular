@@ -10,7 +10,7 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productData: undefined | product;
-  productQuntity: number = 1;
+  productQuantity: number = 1;
   constructor(
     private activeRoute: ActivatedRoute,
     private product: ProductService
@@ -25,10 +25,19 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
   handleQuntity(val: string) {
-    if (this.productQuntity < 20 && val === 'plus') {
-      this.productQuntity += 1;
-    } else if (this.productQuntity > 1 && val === 'sub') {
-      this.productQuntity -= 1;
+    if (this.productQuantity < 20 && val === 'plus') {
+      this.productQuantity += 1;
+    } else if (this.productQuantity > 1 && val === 'sub') {
+      this.productQuantity -= 1;
+    }
+  }
+  AddToCart() {
+    if (this.productData) {
+      this.productData.quantity = this.productQuantity;
+      if (!localStorage.getItem('User')) {
+        // console.warn(this.productData);
+        this.product.localAddToCart(this.productData);
+      }
     }
   }
 }
