@@ -50,6 +50,7 @@ export class ProductService implements OnInit {
     let localCart = localStorage.getItem('localCart');
     if (!localCart) {
       localStorage.setItem('localCart', JSON.stringify([data]));
+      this.cartData.emit([data]);
     } else {
       cartData = JSON.parse(localCart);
       cartData.push(data);
@@ -71,5 +72,16 @@ export class ProductService implements OnInit {
 
   AddToCartData(cartData: cart) {
     return this.http.post('http://localhost:3000/cart', cartData);
+  }
+  getCartList(userId: number) {
+    return this.http
+      .get<product[]>(`http://localhost:3000/cart?userId=${userId}`, {
+        observe: 'response',
+      })
+      .subscribe((res) => {
+        if (res && res.body) {
+          this.cartData.emit(res.body);
+        }
+      });
   }
 }

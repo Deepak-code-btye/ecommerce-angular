@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { cart, product } from 'src/data.type';
@@ -37,6 +38,21 @@ export class ProductDetailsComponent implements OnInit {
             this.removeCart = false;
           }
         }
+
+        let user = localStorage.getItem('User');
+        if (user) {
+          let userId = user && JSON.parse(user).id;
+          this.product.getCartList(userId);
+          this.product.cartData.subscribe((res) => {
+            let items = res.filter(
+              (item: product) =>
+                productFindId?.toString() === item.productId?.toString()
+            );
+            if (items.length) {
+              this.removeCart = true;
+            }
+          });
+        }
       });
   }
   handleQuntity(val: string) {
@@ -67,7 +83,9 @@ export class ProductDetailsComponent implements OnInit {
         // console.warn(cartData);
         this.product.AddToCartData(cartData).subscribe((res) => {
           if (res) {
-            alert('product is added');
+            // alert('product is added');
+            this.product.getCartList(userId);
+            this.removeCart = true;
           }
         });
       }
