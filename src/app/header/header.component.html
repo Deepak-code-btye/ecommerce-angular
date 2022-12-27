@@ -111,8 +111,9 @@
           </li>
           <li>
             <a
+              routerLink="/cart-page"
               class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
-              >Cart <span>{{ cartItem }}</span></a
+              >Cart <span>{{ cartItem && cartItem }}</span></a
             >
           </li>
         </ul>
@@ -178,8 +179,9 @@
 
           <li>
             <a
+              routerLink="/cart-page"
               class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
-              >Cart <span>{{ cartItem }}</span></a
+              >Cart <span>{{ cartItem && cartItem }}</span></a
             >
           </li>
         </ul>
