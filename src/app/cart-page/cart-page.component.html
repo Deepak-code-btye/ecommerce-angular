@@ -4,7 +4,7 @@
   <a href="#" class="text-2xl font-bold text-gray-800">My Cart</a>
   <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base"></div>
 </div>
-<div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
+<div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32 mb-2">
   <div class="px-4 pt-8">
     <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
       <div
@@ -79,6 +79,14 @@
       <div>
         <span class="font-bold">{{ priceSummary.total }}</span>
       </div>
+    </div>
+    <div class="flex justify-center mt-2 mb-4">
+      <button
+        routerLink="/checkout"
+        class="bg-yellow-400 px-2 h-6 hover:text-yellow-50"
+      >
+        Checkout
+      </button>
     </div>
   </div>
 </div>
