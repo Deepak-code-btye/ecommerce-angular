@@ -73,5 +73,15 @@
       "userId": 1,
       "id": 1
     }
+  ],
+  "order": [
+    {
+      "email": "dk815617@gmail.com",
+      "address": "395, vill. Bhairopur",
+      "details": "up",
+      "totalPrice": 1296,
+      "userId": null,
+      "id": 1
+    }
   ]
 }
