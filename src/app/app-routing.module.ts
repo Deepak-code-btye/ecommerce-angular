@@ -38,6 +38,10 @@ const routes: Routes = [
     component: ProductDetailsComponent,
   },
   {
+    path: 'user-auth',
+    component: UserAuthComponent,
+  },
+  {
     path: 'cart-page',
     component: CartPageComponent,
   },
