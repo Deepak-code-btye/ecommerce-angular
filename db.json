@@ -60,28 +60,47 @@
       "id": 1
     }
   ],
-  "cart": [
-    {
-      "productname": "DENZER HILLS ",
-      "price": "299",
-      "color": "Black",
-      "category": "watch",
-      "description": "mooch wali gujjar Analog Watch - For Boys & Girls",
-      "image": "https://rukminim1.flixcart.com/image/832/832/kzk6bgw0/watch/h/j/j/1-mooch-wali-gujjar-denzer-hills-boys-girls-original-imagbjzyfffuxktt.jpeg?q=70",
-      "quantity": 4,
-      "productId": 4,
-      "userId": 1,
-      "id": 1
-    }
-  ],
-  "order": [
+  "cart": [],
+  "orders": [
     {
       "email": "dk815617@gmail.com",
-      "address": "395, vill. Bhairopur",
-      "details": "up",
+      "address": "Tarang cinema",
+      "details": "uop",
       "totalPrice": 1296,
-      "userId": null,
+      "userId": 1,
       "id": 1
+    },
+    {
+      "email": "dk815617@gmail.com",
+      "address": "146 RAUTAINIA SARDAR",
+      "details": "wdd",
+      "totalPrice": 10100,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "email": "dk815617@gmail.com",
+      "address": "146 RAUTAINIA SARDAR",
+      "details": "fgh",
+      "totalPrice": 150100,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "email": "stayam@gmail.com",
+      "address": "Tarang cinema",
+      "details": "13",
+      "totalPrice": 150100,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "email": "stayam@gmail.com",
+      "address": "sdzcad",
+      "details": "rvtv",
+      "totalPrice": 399,
+      "userId": 1,
+      "id": 5
     }
   ]
 }

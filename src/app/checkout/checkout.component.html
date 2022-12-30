@@ -7,6 +7,7 @@
             class="mt-2 block h-1 w-10 bg-teal-600 sm:w-20"
           ></span>
         </h1>
+        <p class="text-green-500">{{ orderMsg }}</p>
         <form
           #orderData="ngForm"
           (ngSubmit)="orderNow(orderData.value)"

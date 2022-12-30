@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { IfStmt } from '@angular/compiler';
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
 import { cart, order, product } from 'src/data.type';
 
@@ -96,6 +97,22 @@ export class ProductService implements OnInit {
     );
   }
   orderNow(data: order) {
-    return this.http.post(`http://localhost:3000/order`, data);
+    return this.http.post(`http://localhost:3000/orders`, data);
+  }
+  orderList() {
+    let userStore = localStorage.getItem('User');
+    let userData = userStore && JSON.parse(userStore);
+    return this.http.get<order[]>(
+      'http://localhost:3000/orders?userId=' + userData.id
+    );
+  }
+  deleteCartItem(cartId: number) {
+    return this.http
+      .delete(`http://localhost:3000/cart/${cartId}`)
+      .subscribe((res) => {
+        if (res) {
+          this.cartData.emit([]);
+        }
+      });
   }
 }
