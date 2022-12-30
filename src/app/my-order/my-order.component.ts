@@ -11,10 +11,19 @@ export class MyOrderComponent implements OnInit {
   orderData: order[] | undefined;
   constructor(private product: ProductService) {}
   ngOnInit(): void {
-    this.product.orderList().subscribe((res) => {
-      // console.log(res);
-      this.orderData = res;
-      // console.log(this.orderData)
+    this.getOrderList();
+  }
+  CancelOrder(orderId: number | undefined) {
+    orderId &&
+      this.product.cancelOrder(orderId).subscribe((result) => {
+        if (result) {
+          this.getOrderList();
+        }
+      });
+  }
+  getOrderList() {
+    this.product.orderList().subscribe((result) => {
+      this.orderData = result;
     });
   }
 }

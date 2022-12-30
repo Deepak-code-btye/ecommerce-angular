@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { IfStmt } from '@angular/compiler';
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
 import { cart, order, product } from 'src/data.type';
 
@@ -114,5 +113,8 @@ export class ProductService implements OnInit {
           this.cartData.emit([]);
         }
       });
+  }
+  cancelOrder(orderId: number) {
+    return this.http.delete('http://localhost:3000/orders/' + orderId);
   }
 }
