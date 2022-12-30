@@ -85,22 +85,6 @@
       "totalPrice": 150100,
       "userId": 1,
       "id": 3
-    },
-    {
-      "email": "stayam@gmail.com",
-      "address": "Tarang cinema",
-      "details": "13",
-      "totalPrice": 150100,
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "email": "stayam@gmail.com",
-      "address": "sdzcad",
-      "details": "rvtv",
-      "totalPrice": 399,
-      "userId": 1,
-      "id": 5
     }
   ]
 }
