@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
+import { MyOrderComponent } from './my-order/my-order.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SearchComponent } from './search/search.component';
 import { SellerAddProductComponent } from './seller-add-product/seller-add-product.component';
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'my-order',
+    component: MyOrderComponent,
   },
 ];
 
