@@ -1,6 +1,6 @@
 <header>
   <nav class="bg-purple-700 text-white">
-    <div class="flex items-center justify-between px-4 py-2">
+    <div class="flex items-center justify-between px-4 py-3">
       <div class="flex-shrink-0">
         <h1
           class="md:pt-0 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-shadow focus:outline-none"
@@ -60,18 +60,18 @@
         <div [ngSwitch]="menuType" class="hidden md:inline flex-grow mt-2 ml-8">
           <ul
             *ngSwitchCase="'User'"
-            class="text-base text-white md:flex items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex items-baseline md:pt-0"
           >
             <li>
               <a
-                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
                 routerLink="/"
                 >Home</a
               >
             </li>
             <li>
               <a
-                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
                 routerLink="/seller-home"
               >
                 List</a
@@ -79,7 +79,7 @@
             </li>
             <li>
               <a
-                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
                 (click)="userlogout()"
                 >Logout</a
               >
@@ -87,21 +87,21 @@
 
             <li>
               <a
-                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
                 >{{ userName | titlecase }}
               </a>
             </li>
             <li>
               <a
                 [routerLink]="cartItem > 0 ? '/cart-page' : null"
-                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0 cursor-pointerss"
+                class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0 cursor-pointerss"
                 >Cart <span>{{ cartItem }}</span></a
               >
             </li>
           </ul>
           <ul
             *ngSwitchCase="'seller'"
-            class="text-base text-white md:flex items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex items-baseline md:pt-0"
           >
             <li>
               <a
@@ -135,7 +135,7 @@
           </ul>
           <ul
             *ngSwitchCase="'default'"
-            class="text-base text-white md:flex items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex items-baseline md:pt-0"
           >
             <li>
               <a
@@ -209,18 +209,18 @@
     <div [ngSwitch]="menuType" [hidden]="!hamburgerOpen" class="pb-2">
       <ul
         *ngSwitchCase="'User'"
-        class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+        class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
       >
         <li>
           <a
-            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
             routerLink="/"
             >Home</a
           >
         </li>
         <li>
           <a
-            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
             routerLink="/seller-home"
           >
             List</a
@@ -228,7 +228,7 @@
         </li>
         <li>
           <a
-            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
             (click)="userlogout()"
             >Logout</a
           >
@@ -236,21 +236,21 @@
 
         <li>
           <a
-            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
             >{{ userName | titlecase }}
           </a>
         </li>
         <li>
           <a
             [routerLink]="cartItem > 0 ? '/cart-page' : null"
-            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0 cursor-pointerss"
+            class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0 cursor-pointerss"
             >Cart <span>{{ cartItem }}</span></a
           >
         </li>
       </ul>
       <ul
         *ngSwitchCase="'seller'"
-        class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+        class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
       >
         <li>
           <a
@@ -284,7 +284,7 @@
       </ul>
       <ul
         *ngSwitchCase="'default'"
-        class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+        class="px-3 text-base text-white md:flex md:justify-between items-baseline md:pt-0"
       >
         <li>
           <a
