@@ -1,191 +1,321 @@
 <header>
-  <nav
-    class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white"
-  >
-    <div>
-      <a routerLink="/" class="font-bold text-orange-400 cursor-pointer">
-        E-commerce
-      </a>
-    </div>
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      id="menu-button"
-      class="h-6 w-6 cursor-pointer md:hidden block"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16"
-      />
-    </svg>
-
-    <div
-      class="hidden w-full md:flex md:items-baseline md:w-auto items-baseline"
-      id="menu"
-    >
-      <div class="xl:w-96" *ngIf="menuType !== 'seller'">
-        <div class="input-group relative flex items-stretch w-full mb-4">
-          <input
-            type="search"
-            (keyup)="Searchproduct($event)"
-            (blur)="hideSearch()"
-            class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding"
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="button-addon2"
-            #searchInput
-          />
-          <button
-            (click)="SearchBtn(searchInput.value)"
-            class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
-            type="button"
-            id="button-addon2"
-          >
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="search"
-              class="w-4"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
+  <nav class="bg-purple-700 text-white">
+    <div class="flex items-center justify-between px-4 py-2">
+      <div class="flex-shrink-0">
+        <h1
+          class="md:pt-0 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-shadow focus:outline-none"
+          [routerLink]="['/']"
+        >
+          Ecommerce
+        </h1>
+      </div>
+      <div class="hidden lg:flex justify-center items-stretch">
+        <div class="hidden xl:flex xl:w-96" *ngIf="menuType !== 'seller'">
+          <div class="input-group relative flex items-stretch w-full">
+            <input
+              type="search"
+              (keyup)="Searchproduct($event)"
+              (blur)="hideSearch()"
+              class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="button-addon2"
+              #searchInput
+            />
+            <button
+              (click)="SearchBtn(searchInput.value)"
+              class="btn px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+              type="button"
+              id="button-addon2"
             >
-              <path
-                fill="currentColor"
-                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-              ></path>
-            </svg>
-          </button>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="search"
+                class="w-4"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <ul class="" *ngIf="SearchResult">
+            <li
+              *ngFor="let item of SearchResult"
+              class="text-gray-800 text-xs cursor-pointer list-item z-10 hover:text-blue-800"
+            >
+              <!-- <a routerLink="/details/{{ item.id }}"> {{ item.productname }}</a> -->
+              <a (mousedown)="redirectToDetails(item.id)">
+                {{ item.productname }}</a
+              >
+            </li>
+          </ul>
         </div>
-        <ul class="" *ngIf="SearchResult">
-          <li
-            *ngFor="let item of SearchResult"
-            class="text-gray-800 text-xs cursor-pointer list-item z-10 hover:text-blue-800"
+        <div [ngSwitch]="menuType" class="hidden md:inline flex-grow mt-2 ml-8">
+          <ul
+            *ngSwitchCase="'User'"
+            class="text-base text-white md:flex items-baseline md:pt-0"
           >
-            <!-- <a routerLink="/details/{{ item.id }}"> {{ item.productname }}</a> -->
-            <a (mousedown)="redirectToDetails(item.id)">
-              {{ item.productname }}</a
-            >
-          </li>
-        </ul>
+            <li>
+              <a
+                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                routerLink="/"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                routerLink="/seller-home"
+              >
+                List</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                (click)="userlogout()"
+                >Logout</a
+              >
+            </li>
+
+            <li>
+              <a
+                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+                >{{ userName | titlecase }}
+              </a>
+            </li>
+            <li>
+              <a
+                [routerLink]="cartItem > 0 ? '/cart-page' : null"
+                class="text-base text-white md:flex md:justify-between items-baseline md:pt-0 cursor-pointerss"
+                >Cart <span>{{ cartItem }}</span></a
+              >
+            </li>
+          </ul>
+          <ul
+            *ngSwitchCase="'seller'"
+            class="text-base text-white md:flex items-baseline md:pt-0"
+          >
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                routerLink="/seller-add-product"
+                >Add Product</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                routerLink="/seller-home"
+              >
+                List</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                (click)="logout()"
+                >Logout</a
+              >
+            </li>
+
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                >{{ sellerName | titlecase }}
+              </a>
+            </li>
+          </ul>
+          <ul
+            *ngSwitchCase="'default'"
+            class="text-base text-white md:flex items-baseline md:pt-0"
+          >
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                routerLink="/"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                routerLink="/seller-auth"
+                >Seller</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                routerLink="/user-auth"
+                >Login</a
+              >
+            </li>
+
+            <li>
+              <a
+                routerLink="/cart-page"
+                class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+                >Cart <span>{{ cartItem }}</span></a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-      <div [ngSwitch]="menuType">
-        <!-- user -->
-        <ul
-          *ngSwitchCase="'User'"
-          class="pt-4 text-base text-gray-700 md:flex md:justify-between items-baseline md:pt-0"
+      <div class="-mr-2 flex flex-grow justify-end lg:hidden">
+        <button
+          (click)="toggleHamburger()"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-purple-900 focus:outline-none focus:bg-purple-900 focus:text-white active:text-white active:bg-purples-900"
         >
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/seller-home"
-            >
-              List</a
-            >
-          </li>
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              (click)="userlogout()"
-              >Logout</a
-            >
-          </li>
-
-          <li>
-            <a class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
-              >{{ userName | titlecase }}
-            </a>
-          </li>
-          <li>
-            <a
-              [routerLink]="cartItem > 0 ? '/cart-page' : null"
-              class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
-              >Cart <span>{{ cartItem }}</span></a
-            >
-          </li>
-        </ul>
-        <!-- seller -->
-        <ul
-          *ngSwitchCase="'seller'"
-          class="pt-4 text-base text-gray-700 md:flex md:justify-between items-baseline md:pt-0"
-        >
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/seller-add-product"
-              >Add Product</a
-            >
-          </li>
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/seller-home"
-            >
-              List</a
-            >
-          </li>
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              (click)="logout()"
-              >Logout</a
-            >
-          </li>
-
-          <li>
-            <a class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
-              >{{ sellerName | titlecase }}
-            </a>
-          </li>
-        </ul>
-        <ul
-          *ngSwitchCase="'default'"
-          class="pt-4 text-base text-gray-700 md:flex md:justify-between items-baseline md:pt-0"
-        >
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/seller-auth"
-              >Seller</a
-            >
-          </li>
-          <li>
-            <a
-              class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
-              routerLink="/user-auth"
-              >Login</a
-            >
-          </li>
-
-          <li>
-            <a
-              routerLink="/cart-page"
-              class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
-              >Cart <span>{{ cartItem }}</span></a
-            >
-          </li>
-        </ul>
+          <svg
+            class="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              [ngClass]="{
+                hidden: hamburgerOpen,
+                'inline-flex': !hamburgerOpen
+              }"
+              class="inline-flex"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              [ngClass]="{
+                hidden: !hamburgerOpen,
+                'inline-flex': hamburgerOpen
+              }"
+              class="hidden"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </div>
+    </div>
+    <div [ngSwitch]="menuType" [hidden]="!hamburgerOpen" class="pb-2">
+      <ul
+        *ngSwitchCase="'User'"
+        class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+      >
+        <li>
+          <a
+            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            routerLink="/"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            routerLink="/seller-home"
+          >
+            List</a
+          >
+        </li>
+        <li>
+          <a
+            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            (click)="userlogout()"
+            >Logout</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+            >{{ userName | titlecase }}
+          </a>
+        </li>
+        <li>
+          <a
+            [routerLink]="cartItem > 0 ? '/cart-page' : null"
+            class="text-base text-white md:flex md:justify-between items-baseline md:pt-0 cursor-pointerss"
+            >Cart <span>{{ cartItem }}</span></a
+          >
+        </li>
+      </ul>
+      <ul
+        *ngSwitchCase="'seller'"
+        class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+      >
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            routerLink="/seller-add-product"
+            >Add Product</a
+          >
+        </li>
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            routerLink="/seller-home"
+          >
+            List</a
+          >
+        </li>
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            (click)="logout()"
+            >Logout</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            >{{ sellerName | titlecase }}
+          </a>
+        </li>
+      </ul>
+      <ul
+        *ngSwitchCase="'default'"
+        class="text-base text-white md:flex md:justify-between items-baseline md:pt-0"
+      >
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            routerLink="/"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            routerLink="/seller-auth"
+            >Seller</a
+          >
+        </li>
+        <li>
+          <a
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            routerLink="/user-auth"
+            >Login</a
+          >
+        </li>
+
+        <li>
+          <a
+            routerLink="/cart-page"
+            class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer hover:bg-purple-500 focus:outline-none focus:bg-purple-600"
+            >Cart <span>{{ cartItem }}</span></a
+          >
+        </li>
+      </ul>
     </div>
   </nav>
 </header>
