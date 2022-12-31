@@ -28,7 +28,7 @@
       class="hidden w-full md:flex md:items-baseline md:w-auto items-baseline"
       id="menu"
     >
-      <div class="xl:w-96" *ngIf="menuType === 'default'">
+      <div class="xl:w-96" *ngIf="menuType !== 'seller'">
         <div class="input-group relative flex items-stretch w-full mb-4">
           <input
             type="search"
@@ -111,7 +111,7 @@
           </li>
           <li>
             <a
-              routerLink="/cart-page"
+              [routerLink]="cartItem > 0 ? '/cart-page' : null"
               class="md:p-4 py-2 block hover:text-purple-400 text-purple-500 cursor-pointerss"
               >Cart <span>{{ cartItem }}</span></a
             >
@@ -173,7 +173,7 @@
             <a
               class="md:p-4 py-2 block hover:text-purple-400 cursor-pointer"
               routerLink="/user-auth"
-              >Login /Sign-up</a
+              >Login</a
             >
           </li>
 

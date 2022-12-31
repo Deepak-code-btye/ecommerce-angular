@@ -9,7 +9,7 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./cart-page.component.css'],
 })
 export class CartPageComponent implements OnInit {
-  carData: cart[] | undefined;
+  cartData: cart[] | undefined;
   priceSummary: priceSummary = {
     price: 0,
     discount: 0,
@@ -19,8 +19,11 @@ export class CartPageComponent implements OnInit {
   };
   constructor(private product: ProductService, private route: Router) {}
   ngOnInit(): void {
+    this.loadDetails();
+  }
+  loadDetails() {
     this.product.currentCart().subscribe((res) => {
-      this.carData = res;
+      this.cartData = res;
       let price = 0;
       res.forEach((item) => {
         if (item.quantity) {
@@ -31,7 +34,20 @@ export class CartPageComponent implements OnInit {
       this.priceSummary.discount = price / 10;
       this.priceSummary.delivery = 100;
       this.priceSummary.total = price + price / 10 + 100 - price / 10;
-      console.log(this.priceSummary);
+      // console.log(this.priceSummary);
+      if (!this.cartData.length) {
+        this.route.navigate(['/']);
+      }
     });
+  }
+  removeToCart(cartId: number | undefined) {
+    cartId &&
+      this.cartData &&
+      this.product.removeToCart(cartId).subscribe((result) => {
+        this.loadDetails();
+      });
+  }
+  checkout() {
+    this.route.navigate(['/checkout']);
   }
 }
