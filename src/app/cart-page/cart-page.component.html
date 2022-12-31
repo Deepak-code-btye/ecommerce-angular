@@ -9,7 +9,7 @@
     <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
       <div
         class="flex flex-col rounded-lg bg-white sm:flex-row"
-        *ngFor="let item of carData"
+        *ngFor="let item of cartData"
       >
         <img
           class="m-2 h-24 w-28 rounded-md border object-cover object-center"
@@ -22,28 +22,14 @@
             >Quantity : {{ item.quantity} }</span
           >
           <p class="text-lg font-bold">{{ item.price }}</p>
-          <button class="bg-yellow-400 px-2 h-6 hover:text-yellow-50">
+          <button
+            (click)="removeToCart(item.id)"
+            class="bg-yellow-400 px-2 h-6 hover:text-yellow-50"
+          >
             Remove
           </button>
         </div>
       </div>
-
-      <!-- <div class="flex flex-col rounded-lg bg-white sm:flex-row">
-        <img
-          class="m-2 h-24 w-28 rounded-md border object-cover object-center"
-          src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-          alt=""
-        />
-        <div class="flex w-full flex-col px-4 py-4">
-          <span class="font-semibold">Nike Air Max Pro 8888 - Super Light</span>
-
-          <span class="float-right text-gray-400">Quantity : 5</span>
-          <p class="mt-auto text-lg font-bold">$238.99</p>
-          <button class="bg-yellow-400 px-2 h-6 hover:text-yellow-50">
-            Remove
-          </button>
-        </div>
-      </div> -->
     </div>
   </div>
   <div class="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
