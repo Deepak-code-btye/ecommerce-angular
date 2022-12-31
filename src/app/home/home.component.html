@@ -3,7 +3,10 @@
     <ng-template ngbSlide *ngFor="let item of propularProducts">
       <div class="picsum-img-wrapper">
         <a routerLink="/details/{{ item.id }}">
-          <img src="{{ item.image }}" alt="Random first slide"
+          <img
+            class="h-96 w-screen object-cover"
+            src="{{ item.image }}"
+            alt="Random first slide"
         /></a>
       </div>
       <div class="carousel-caption">

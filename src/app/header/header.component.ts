@@ -8,6 +8,11 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  hamburgerOpen = false;
+
+  toggleHamburger(): void {
+    this.hamburgerOpen = !this.hamburgerOpen;
+  }
   // search box func
   menuType: string = 'default';
   // seller name
